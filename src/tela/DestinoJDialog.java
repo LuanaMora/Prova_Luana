@@ -5,6 +5,7 @@
  */
 package tela;
 
+import MENU.menuJDialog;
 import ProvaLuana.DAO.DestinoDAO;
 import ProvaLuana.model.Destino;
 import java.sql.SQLException;
@@ -36,7 +37,6 @@ public class DestinoJDialog extends javax.swing.JDialog {
         tfValorTotal.setEnabled(false);
         tfCodigoFiltrar.setEnabled(false);
         tfNomeFiltrar.setEnabled(false);
-                
 
         destinoDAO = new DestinoDAO();
         JOptionPane.showMessageDialog(null, "No campo de datas, deve-se colocar no seguinte formato: yyyy-MM-dd", "ATENÇÃO", JOptionPane.ERROR_MESSAGE);
@@ -102,6 +102,7 @@ public class DestinoJDialog extends javax.swing.JDialog {
         btNovo = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
 
         jTextField4.setText("jTextField4");
 
@@ -195,6 +196,13 @@ public class DestinoJDialog extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setText("Fechar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -248,14 +256,16 @@ public class DestinoJDialog extends javax.swing.JDialog {
                         .addGap(80, 80, 80)
                         .addComponent(btFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(423, 423, 423)
                         .addComponent(btDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(423, 423, 423)
-                        .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(333, 333, 333)
+                                .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(11, Short.MAX_VALUE))
             .addComponent(jSeparator2)
         );
@@ -307,10 +317,16 @@ public class DestinoJDialog extends javax.swing.JDialog {
                     .addComponent(btFiltrar))
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(btDeletar)
-                .addGap(6, 6, 6)
-                .addComponent(btAtualizar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btDeletar)
+                        .addGap(6, 6, 6)
+                        .addComponent(btAtualizar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addContainerGap())))
         );
 
         pack();
@@ -337,12 +353,18 @@ public class DestinoJDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void rbCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCodigoActionPerformed
-       habilitaFiltroCodigo();
+        habilitaFiltroCodigo();
     }//GEN-LAST:event_rbCodigoActionPerformed
 
     private void rbNomeFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNomeFiltrarActionPerformed
         habilitaFiltroNome();
     }//GEN-LAST:event_rbNomeFiltrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+        menuJDialog dialog = new menuJDialog(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -397,6 +419,7 @@ public class DestinoJDialog extends javax.swing.JDialog {
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSalvar;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;

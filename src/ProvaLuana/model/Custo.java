@@ -13,7 +13,7 @@ package ProvaLuana.model;
  */
 public class Custo {
     private int codigo;
-    private int codigoDestino;
+    private Destino destino;
     private String descricao;
     private int tipo;
     private float valor;
@@ -26,12 +26,12 @@ public class Custo {
         this.codigo = codigo;
     }
 
-    public  int getCodigoDestino() {
-        return codigoDestino;
+    public  Destino getDestino() {
+        return destino;
     }
 
-    public void setCodigoDestino(int codigoDescricao) {
-        this.codigoDestino = codigoDescricao;
+    public void setDestino(Destino destino) {
+        this.destino = destino;
     }
 
     public String getDescricao() {
